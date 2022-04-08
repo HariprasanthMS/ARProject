@@ -1,4 +1,4 @@
-Shader "Custom/NewSurfaceShader"
+Shader "Custom/RingShader"
 {
     Properties
     {
@@ -9,7 +9,7 @@ Shader "Custom/NewSurfaceShader"
     }
     SubShader
     {
-        Tags { "RenderType"="Opaque" }
+        Tags { "RenderType"="Opaque" "Queue" = "Transparent+10"}
         LOD 200
 
         CGPROGRAM
@@ -50,13 +50,4 @@ Shader "Custom/NewSurfaceShader"
         ENDCG
     }
     FallBack "Diffuse"
-}
-
-Shader "FingerShader" {
-    SubShader{
-        Tags {"Queue" = "Transparent+5" }
-        ColorMask 0
-        ZWrite On
-        pass {}
-    }
 }

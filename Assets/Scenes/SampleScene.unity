@@ -647,7 +647,7 @@ MonoBehaviour:
   fingerInfoGizmo: {fileID: 0}
   warningPanel: {fileID: 1334835652}
   finger: {fileID: 0}
-  ringPrefab: {fileID: 1873155531573277845, guid: 6dfaab28d2ac5d8499c3567a1e4dc733, type: 3}
+  ringPrefab: {fileID: 8324985063795973273, guid: 0230574c015ec32499365b99ccda61f6, type: 3}
 --- !u!4 &711177858
 Transform:
   m_ObjectHideFlags: 0
@@ -1338,21 +1338,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4192251493132718188, guid: d641a290c115de245b75864a192f4f09, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4192251493227354108, guid: d641a290c115de245b75864a192f4f09, type: 3}
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4192251493227354108, guid: d641a290c115de245b75864a192f4f09, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 374.30652
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4192251493227354108, guid: d641a290c115de245b75864a192f4f09, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 39
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4192251493227354108, guid: d641a290c115de245b75864a192f4f09, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 239.70322
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4192251493227354108, guid: d641a290c115de245b75864a192f4f09, type: 3}
       propertyPath: m_LocalRotation.w

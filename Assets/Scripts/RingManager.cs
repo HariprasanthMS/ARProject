@@ -16,7 +16,8 @@ public class RingManager : MonoBehaviour
     void Start()
     {
         ring = Instantiate(ringPrefab);
-        
+        ManomotionManager.Instance.ShouldCalculateSkeleton3D(true);
+
         Screen.orientation = ScreenOrientation.Portrait;
         GameObject.Find("Finger").SetActive(false);
 
@@ -88,8 +89,8 @@ public class RingManager : MonoBehaviour
         {
             Debug.Log("Warning panel not null");
             warningPanel.SetActive(true);
-            warningPanel.GetComponent<TMPro.TextMeshProUGUI>().text = message;
-            Debug.Log(warningPanel.GetComponent<TMPro.TextMeshProUGUI>().text);
+            //warningPanel.GetComponent<TMPro.TextMeshProUGUI>().text = message;
+            //Debug.Log(warningPanel.GetComponent<TMPro.TextMeshProUGUI>().text);
         }
         else
         {
