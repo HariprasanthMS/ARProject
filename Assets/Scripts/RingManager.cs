@@ -9,17 +9,19 @@ public class RingManager : MonoBehaviour
     public GameObject warningPanel;
     public GameObject finger;
     public GameObject ringPrefab;
-
+    
     private GameObject ring;
 
     // Start is called before the first frame update
     void Start()
     {
+        const int INDEX_FINGER = 2;
         ring = Instantiate(ringPrefab);
         ManomotionManager.Instance.ShouldCalculateSkeleton3D(true);
+        ManomotionManager.Instance.ToggleFingerInfoFinger(INDEX_FINGER);
 
         Screen.orientation = ScreenOrientation.Portrait;
-        GameObject.Find("Finger").SetActive(false);
+        GameObject.Find("Finger").SetActive(true);
 
         if (fingerInfoGizmo==null)
         {
@@ -35,10 +37,29 @@ public class RingManager : MonoBehaviour
         }
     }
 
+    private Vector3 DenormalizeJointValues(Vector3 position, float width, float height)
+    {
+        Vector3 calculatedJoint;
+        calculatedJoint = new Vector3(position.x * width, position.y * height, position.z);
+        return calculatedJoint;
+    }
+
     // Update is called once per frame
     void Update()
     {
         ManomotionManager.Instance.ShouldRunFingerInfo(true);
+        SkeletonInfo skeleton = ManomotionManager.Instance.Hand_infos[0].hand_info.tracking_info.skeleton;
+        if (skeleton.confidence == 1)
+        {
+            for (int i = 0; i < 21; i++)
+            {
+                Debug.Log("Skeleton info: ["+ i + "] " + skeleton.joints[i]);
+                Vector3 denormalizedPosition = DenormalizeJointValues(skeleton.joints[i], Screen.width, Screen.height);
+                // logs the values to look at the difference of the values.
+                Debug.Log("new joint value: " + denormalizedPosition + "   normal value: " + skeleton.joints[i]);
+
+            }
+        }
 
         if (ManomotionManager.Instance.Hand_infos[0].hand_info.gesture_info.mano_class == ManoClass.GRAB_GESTURE)
         {
@@ -76,7 +97,7 @@ public class RingManager : MonoBehaviour
         }
 
         Debug.Log("Finger info at " + ringPlacement);
-        // finger.transform.position = ringPlacement;
+        finger.transform.position = ringPlacement;
     }
 
     private void HideRing(string message)
