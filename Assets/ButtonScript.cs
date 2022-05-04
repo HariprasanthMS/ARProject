@@ -13,8 +13,7 @@ public class ButtonScript : MonoBehaviour
 
     private void OnMouseDown() {
         // KeypadClicked.Invoke();
-        self.transform.GetChild(1).gameObject.SetActive(true);
-        parent.SetActive(false);
+        parent.transform.GetChild(1).gameObject.SetActive(true);
     }
     // Start is called before the first frame update
     void Start()

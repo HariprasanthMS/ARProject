@@ -13,7 +13,7 @@ public class KeyPad : MonoBehaviour
     public void ButtonClicked(string input)
     {
         userInput += input;
-        Debug.Log(userInput);
+        Debug.Log("Keypad input: "+userInput);
     }
 
     public void hide()
