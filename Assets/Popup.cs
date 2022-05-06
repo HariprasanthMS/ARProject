@@ -7,7 +7,7 @@ public class Popup : MonoBehaviour
     private string userInput = "";
     public KeyPad keypad;
     // public GameObject self;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +24,7 @@ public class Popup : MonoBehaviour
     {
         keypad.ButtonClicked(number);
         keypad.hide();
-        Debug.Log("keypad hidden");
+        Debug.Log("keypad hidden: " + number);
         gameObject.SetActive(true);
     }
 }
